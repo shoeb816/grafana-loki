@@ -24,10 +24,10 @@ The name can be set as per your requirement, In the url part you have to add the
 **4.** Then you can add the following dashboard id to the Grafana ‘15141’. Import this you will get the dashboard implemented in dev Grafana.
 
 
-**Gafana Loki & Promtail using Manual Configuration File :
-**
+**Gafana Loki & Promtail using Manual Configuration File :**
 
 **1. Generate Declarative yaml file of Grafana Loki & Promtail from Kubernetes Cluster which was setup using Helm Chart.**
+
 `clusterrole-loki-promtail.yaml
 clusterrole-promtail.yaml
 clusterrolebinding-loki-promtail.yaml
@@ -110,11 +110,9 @@ statefulset-loki.yaml`
 `loki-promtail, loki
 ` 
 
-**5)After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.
-**
+**5)After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.**
 
-**i)The name can be set as per your requirement, In the url part you have to add the cluster-ip url. Since both the Grafana & Loki are in the same cluster.
-**
+**i)The name can be set as per your requirement, In the url part you have to add the cluster-ip url. Since both the Grafana & Loki are in the same cluster.**
 
 `For example
 URL http://loki.monitoring.svc.cluster.local:3100/`
@@ -140,17 +138,14 @@ Loki (Select It)
 #Check the changes after click on Run Query
 `
 
-**ii)Click Right button on Graph Window and edit the query section with below parameters and click on Run queries.
-**
+**ii)Click Right button on Graph Window and edit the query section with below parameters and click on Run queries.**
 
 `sum(count_over_time({namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query" [$__interval]))
 `
  
-**iii) Similarly Edit query option of the Log window and On Time Under Logs menu at the Right Middle side for timestamp.
-**
+**iii) Similarly Edit query option of the Log window and On Time Under Logs menu at the Right Middle side for timestamp.**
 
 `{namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query"
 `
  
-**6)Now you can see the Graph and Logs with appropriate parameters.:slight_smile: 
-**
+**6)Now you can see the Graph and Logs with appropriate parameters.:slight_smile:**
