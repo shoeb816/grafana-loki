@@ -109,8 +109,8 @@ vii)Create DaemonSet and StateFulSet
 
 i)The name can be set as per your requirement, In the url part you have to add the cluster-ip url. Since both the Grafana & Loki are in the same cluster.
 
-`For example
-URL http://loki.monitoring.svc.cluster.local:3100/
+``For example
+URL http://loki.monitoring.svc.cluster.local:3100/`
 
 Go to the Loki Kubernetes Logs/Setting and add pods variable in variable section with below parameters and Click on Run Query to see all pods name are visible in Preview of values.
 
