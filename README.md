@@ -92,21 +92,22 @@ limits_config:
 `secret-loki-promtail (datafile file-loki-promtail.yaml),  secret-loki(datafile file-loki.yaml),  secret-promtail (datafile file-promtail),  secret-sh.helm.release.v1.loki.v1, secret-sh.helm.release.v1.promtail.v1`
 
 **vi)Create 1 persistent volume claim of 300GB**
-`storage-loki-0
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 300Gi ### Change IT`
- 
 
-**vii)Create DaemonSet and StateFulSet
-**
+`storage-loki-0`
+`spec:`
+  `accessModes:`
+  `- ReadWriteOnce`
+  `resources:`
+    `requests:`
+      `storage: 300Gi  (Change IT)`
+ 
+**vii)Create DaemonSet and StateFulSet**
+
 `loki-promtail, loki
 ` 
 
-5)After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.
+**5)After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.
+**
 
 **i)The name can be set as per your requirement, In the url part you have to add the cluster-ip url. Since both the Grafana & Loki are in the same cluster.
 **
