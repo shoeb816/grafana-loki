@@ -2,31 +2,30 @@
 
 This Document will help you setup Loki & Promtail in Kubernetes using helm and manual configuration file.
 
- 
-******Gafana Loki & Promtail Setup using Helm****
-**
-1. First add the helm repo to the local repository.
+
+**Gafana Loki & Promtail Setup using Helm**
+
+**1.** First add the helm repo to the local repository.
 
 `[root@devopsrnd ~]# helm repo add grafana https://grafana.github.io/helm-charts
 `
 
-2. Then we will install it using the following command.
-
-the below command will install loki & promtail to monitoring namespace, setup data retention to 240h & also setup a PVC for loki to persist the data stored in loki pods.(Consider Grafana,prometheus are already Installed)
+**2.** Then we will install it using the following command. The below command will install loki & promtail to monitoring namespace, setup data retention to 240h & also setup a PVC for loki to persist the data stored in loki pods.(Consider Grafana,prometheus are already Installed)
 
 `[root@devopsrnd ~]#helm upgrade --install loki grafana/loki-stack --namespace=monitoring --set config.table_manager.retention_deletes_enabled=true --set config.table_manager.retention_period=240h --set grafana.enabled=false,prometheus.enabled=false,loki.persistence.enabled=true,loki.persistence.storageClassName=standard,loki.persistence.size=100Gi`
 
-3.After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.
+**3.** After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.
 
 The name can be set as per your requirement, In the url part you have to add the cluster-ip url. Since both the Grafana & Loki are in the same cluster.
 
 `http://loki.<namespace>.svc.cluster.local:3100/
 `
 
-4.Then you can add the following dashboard id to the Grafana ‘15141’. Import this you will get the dashboard implemented in dev Grafana.
+**4.** Then you can add the following dashboard id to the Grafana ‘15141’. Import this you will get the dashboard implemented in dev Grafana.
 
- 
-##### Gafana Loki & Promtail using Manual Configuration File :
+
+**Gafana Loki & Promtail using Manual Configuration File :
+**
 
 **1. Generate Declarative yaml file of Grafana Loki & Promtail from Kubernetes Cluster which was setup using Helm Chart.**
 `clusterrole-loki-promtail.yaml
