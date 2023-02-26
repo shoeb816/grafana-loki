@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    meta.helm.sh/release-name: loki
+    meta.helm.sh/release-namespace: monitoring
+  creationTimestamp: "2023-01-25T05:37:24Z"
+  labels:
+    app.kubernetes.io/instance: loki
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: promtail
+    app.kubernetes.io/version: 2.7.2
+    helm.sh/chart: promtail-6.8.2
+  name: loki-promtail
+  namespace: monitoring
+  resourceVersion: "597658796"
+  uid: 36f55dc5-a78c-487c-9dd1-db2005e9731f
+secrets:
+- name: loki-promtail-token-6cg7l
