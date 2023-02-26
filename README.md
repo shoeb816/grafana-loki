@@ -138,7 +138,7 @@ ii)Click Right button on Graph Window and edit the query section with below para
 `sum(count_over_time({namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query" [$__interval]))
 `
  
-iii) #Similarly Edit query option of the Log window and On Time Under Logs menu at the Right Middle side for timestamp.
+iii) ##Similarly Edit query option of the Log window and On Time Under Logs menu at the Right Middle side for timestamp.
 
 `{namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query"
 `
