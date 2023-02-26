@@ -76,6 +76,7 @@ limits_config:
 i)Create 3 SA account.
 `loki, loki-promtail, promtail
 `
+
 ii)Create role and rolebinding.
 `loki`
 
@@ -87,7 +88,6 @@ iv)Create two config map.
 `
 v)Create 5 secret.
 `secret-loki-promtail (datafile file-loki-promtail.yaml),  secret-loki(datafile file-loki.yaml),  secret-promtail (datafile file-promtail),  secret-sh.helm.release.v1.loki.v1, secret-sh.helm.release.v1.promtail.v1`
- 
 
 vi)Create 1 persistent volume claim of 300GB
 `storage-loki-0
