@@ -140,14 +140,14 @@ iii)Click Right button on Graph Window and edit the query section with below par
 
 
 
-sum(count_over_time({namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query" [$__interval]))
-
+`sum(count_over_time({namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query" [$__interval]))
+`
  
 
 iV)Similarly Edit query option of the Log window and On Time Under Logs menu at the Right Middle side for timestamp.
 
 
-{namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query"
-
+`{namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query"
+`
 
 6)Now you can see the Graph and Logs with appropriate parameters.:slight_smile: 
