@@ -114,21 +114,20 @@ URL http://loki.monitoring.svc.cluster.local:3100/
 
 Go to the Loki Kubernetes Logs/Setting and add pods variable in variable section with below parameters and Click on Run Query to see all pods name are visible in Preview of values.
 
-
 Select variable type
-Query ### Select It
+Query (Select It)
 
 General
 Name
 The name of the template variable. (Max. 50 characters)
-pods ### Write It
+pods (Write It)
 
 Query options
 Data source
-Loki ### Select It
+Loki (Select It)
 
 Custom all value
-.+ ### Write It
+.+  (Write It)
 
 Preview of values
 #Check the changes after click on Run Query`
