@@ -131,7 +131,7 @@ Custom all value
 .+ ### Write It
 
 Preview of values
-### Check the changes after click on Run Query`
+#Check the changes after click on Run Query`
 
 iii)Click Right button on Graph Window and edit the query section with below parameters and click on Run queries.
 
