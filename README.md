@@ -74,7 +74,7 @@ statefulset-loki.yaml`
 
 **4.Apply yaml file one by one according to this list.**
 
-**i)Create 3 SA account
+**i)Create 3 SA account**
 
 `loki, loki-promtail, promtail
 `
