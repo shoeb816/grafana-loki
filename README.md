@@ -112,26 +112,26 @@ i)The name can be set as per your requirement, In the url part you have to add t
 `For example
 URL http://loki.monitoring.svc.cluster.local:3100/`
 
-Go to the Loki Kubernetes Logs/Setting and add pods variable in variable section with below parameters and Click on Run Query to see all pods name are visible in Preview of values.
+`Go to the Loki Kubernetes Logs/Setting and add pods variable in variable section with below parameters and Click on Run Query to see all pods name are visible in Preview of values.
+`
+`Select variable type
+Query (Select It)`
 
-Select variable type
-Query (Select It)
-
-General
+`General
 Name
 The name of the template variable. (Max. 50 characters)
-pods (Write It)
+pods (Write It)`
 
-Query options
+`Query options
 Data source
 Loki (Select It)
+`
+`Custom all value
+.+  (Write It)`
 
-Custom all value
-.+  (Write It)
-
-Preview of values
-#Check the changes after click on Run Query`
-
+`Preview of values
+#Check the changes after click on Run Query
+`
 iii)Click Right button on Graph Window and edit the query section with below parameters and click on Run queries.
 
 `sum(count_over_time({namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query" [$__interval]))
