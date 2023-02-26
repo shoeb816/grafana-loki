@@ -83,9 +83,11 @@ ii)Create role and rolebinding.
 iii)Create two  clusterrole and clusterrolebinding.
 `loki-promtail, promtail
 `
+
 iv)Create two config map.
 `loki-loki-stack, loki-loki-stack-test
 `
+
 v)Create 5 secret.
 `secret-loki-promtail (datafile file-loki-promtail.yaml),  secret-loki(datafile file-loki.yaml),  secret-promtail (datafile file-promtail),  secret-sh.helm.release.v1.loki.v1, secret-sh.helm.release.v1.promtail.v1`
 
