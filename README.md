@@ -10,7 +10,8 @@ This Document will help you setup Loki & Promtail in Kubernetes using helm and m
 
 `[root@devopsrnd ~]# helm repo add grafana https://grafana.github.io/helm-charts
 `
-2.Then we will install it using the following command.
+
+2. Then we will install it using the following command.
 
 the below command will install loki & promtail to monitoring namespace, setup data retention to 240h & also setup a PVC for loki to persist the data stored in loki pods.(Consider Grafana,prometheus are already Installed)
 
@@ -66,29 +67,34 @@ statefulset-loki.yaml`
 
  **i)Add retention period for 10 days.**
 
-`compactor:
-  retention_enabled: true ### Add this line
-limits_config:
-  retention_period: 240h ###Change It`
+`compactor:`
+  `retention_enabled: true  (Add this line)`
+`limits_config:`
+  `retention_period: 240h (Change It)`
 
 **4.Apply yaml file one by one according to this list.**
 
-**i)Create 3 SA account.**
+**i)Create 3 SA account
+
 `loki, loki-promtail, promtail
 `
 
 **ii)Create role and rolebinding.**
+
 `loki`
 
 **iii)Create two  clusterrole and clusterrolebinding.**
+
 `loki-promtail, promtail
 `
 
 **iv)Create two config map.**
+
 `loki-loki-stack, loki-loki-stack-test
 `
 
 **v)Create 5 secret.**
+
 `secret-loki-promtail (datafile file-loki-promtail.yaml),  secret-loki(datafile file-loki.yaml),  secret-promtail (datafile file-promtail),  secret-sh.helm.release.v1.loki.v1, secret-sh.helm.release.v1.promtail.v1`
 
 **vi)Create 1 persistent volume claim of 300GB**
