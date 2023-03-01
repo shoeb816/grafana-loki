@@ -28,7 +28,7 @@ The name can be set as per your requirement, In the url part you have to add the
 
 **Gafana Loki & Promtail using Manual Configuration File :**
 
-**1. Generate Declarative yaml file of Grafana Loki & Promtail from Kubernetes Cluster which was setup using Helm Chart.**
+**1.** Generate Declarative yaml file of Grafana Loki & Promtail from Kubernetes Cluster which was setup using Helm Chart.
 ```
 clusterrole-loki-promtail.yaml,
 clusterrole-promtail.yaml,
@@ -57,16 +57,16 @@ service-loki.yamlstatefulset-loki.yaml,
 statefulset-loki.yaml
 ```
 
-**2. Open  each secret file , copy encrypted data file and after decryption with base64 ,generate file-XXX.yaml  it.**
+**2.** Open  each secret file , copy encrypted data file and after decryption with base64 ,generate file-XXX.yaml  it.
 
- **i)For example cat  secret-loki.yaml and copy encrypted loki.yaml data from it and generate file-loki.yaml using below command.**
+ **i)** For example cat  secret-loki.yaml and copy encrypted loki.yaml data from it and generate file-loki.yaml using below command.
 
 `[root@devopsrnd ~]#echo 'YXV….yAK' | base64 -d > file-loki.yaml
 `
  
-**3.Change configuration into loki.yaml file.**
+**3.** Change configuration into loki.yaml file.
 
- **i)Add retention period for 10 days.**
+ **i)** Add retention period for 10 days.
 
 ```
 compactor:
@@ -75,34 +75,34 @@ limits_config:
   retention_period: 240h (Change It)
 ```
 
-**4.Apply yaml file one by one according to this list.**
+**4.** Apply yaml file one by one according to this list.
 
-**i)Create 3 SA account**
+**i)** Create 3 SA account
 
 `loki, loki-promtail, promtail
 `
 
-**ii)Create role and rolebinding.**
+**ii)** Create role and rolebinding.
 
 `loki`
 
-**iii)Create two  clusterrole and clusterrolebinding.**
+**iii)** Create two  clusterrole and clusterrolebinding.
 
 `loki-promtail, promtail
 `
 
-**iv)Create two config map.**
+**iv)** Create two config map.
 
 `loki-loki-stack, loki-loki-stack-test
 `
 
-**v)Create 5 secret.**
+**v)** Create 5 secret.
 
 ```
 secret-loki-promtail (datafile file-loki-promtail.yaml),  secret-loki(datafile file-loki.yaml),  secret-promtail (datafile file-promtail),  secret-sh.helm.release.v1.loki.v1, secret-sh.helm.release.v1.promtail.v1
 ```
 
-**vi)Create 1 persistent volume claim of 300GB**
+**vi)** Create 1 persistent volume claim of 300GB.
 
 ```
 storage-loki-0
@@ -114,14 +114,14 @@ spec:
       storage: 300Gi  (Change IT)
 ```
  
-**vii)Create DaemonSet and StateFulSet**
+**vii)** Create DaemonSet and StateFulSet
 
 `loki-promtail, loki
 ` 
 
-**5)After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.**
+**5)** After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.
 
-**i)The name can be set as per your requirement, In the url part you have to add the cluster-ip url. Since both the Grafana & Loki are in the same cluster.**
+**i)** The name can be set as per your requirement, In the url part you have to add the cluster-ip url. Since both the Grafana & Loki are in the same cluster.
 
 ```
 For example
@@ -148,14 +148,14 @@ Preview of values
 #Check the changes after click on Run Query
 ```
 
-**ii)Click Right button on Graph Window and edit the query section with below parameters and click on Run queries.**
+**ii)** Click Right button on Graph Window and edit the query section with below parameters and click on Run queries.
 
 `sum(count_over_time({namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query" [$__interval]))
 `
  
-**iii) Similarly Edit query option of the Log window and On Time Under Logs menu at the Right Middle side for timestamp.**
+**iii)** Similarly Edit query option of the Log window and On Time Under Logs menu at the Right Middle side for timestamp.
 
 `{namespace=~"$namespace", stream=~"$stream", container =~"$container"} |= "$query"
 `
  
-**6)Now you can see the Graph and Logs with appropriate parameters.:slight_smile:**
+**6)** Now you can see the Graph and Logs with appropriate parameters.**:slight_smile:**
