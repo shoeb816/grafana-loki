@@ -66,8 +66,11 @@ statefulset-loki.yaml`
  **i)Add retention period for 10 days.**
 
 `compactor:`
+
   `retention_enabled: true  (Add this line)`
+  
 `limits_config:`
+
   `retention_period: 240h (Change It)`
 
 **4.Apply yaml file one by one according to this list.**
