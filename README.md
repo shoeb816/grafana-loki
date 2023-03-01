@@ -1,9 +1,9 @@
-**Gafana Loki & Promtail Setup for Kubernetes**
+##########################################################**Gafana Loki & Promtail Setup for Kubernetes**###########################################################
 
 This Document will help you setup Loki & Promtail in Kubernetes using helm and manual configuration file.
 
 
-**Gafana Loki & Promtail Setup using Helm**
+##################################**Gafana Loki & Promtail Setup using Helm**
 
 **1.** First add the helm repo to the local repository.
 
@@ -26,7 +26,7 @@ The name can be set as per your requirement, In the url part you have to add the
 **4.** Then you can add the following dashboard id to the Grafana ‘15141’. Import this you will get the dashboard implemented in dev Grafana.
 
 
-**Gafana Loki & Promtail using Manual Configuration File :**
+##################################**Gafana Loki & Promtail using Manual Configuration File :**
 
 **1.** Generate Declarative yaml file of Grafana Loki & Promtail from Kubernetes Cluster which was setup using Helm Chart.
 ```
