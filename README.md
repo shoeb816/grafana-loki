@@ -28,30 +28,30 @@ The name can be set as per your requirement, In the url part you have to add the
 
 **1. Generate Declarative yaml file of Grafana Loki & Promtail from Kubernetes Cluster which was setup using Helm Chart.**
 
-`clusterrole-loki-promtail.yaml
-clusterrole-promtail.yaml
-clusterrolebinding-loki-promtail.yaml
-clusterrolebinding-promtail.yaml
-cm-loki-loki-stack-test.yaml
-cm-loki-loki-stack.yaml
-daemonset-loki-promtail.yaml
-file-loki-promtail.yaml
-file-loki.yaml
-file-promtail.yaml
-pvc-storage-loki-0.yaml
-role-loki.yaml
-rolebinding-loki.yaml
-sa-loki-promtail.yaml
-sa-loki.yaml
-sa-promtail.yaml
-secret-loki-promtail.yaml
-secret-loki.yaml
-secret-promtail.yaml
-secret-sh.helm.release.v1.loki.v1.yaml
-secret-sh.helm.release.v1.promtail.v1.yaml
-service-loki-headless.yaml
-service-loki-memberlist.yaml
-service-loki.yamlstatefulset-loki.yaml
+`clusterrole-loki-promtail.yaml,
+clusterrole-promtail.yaml,
+clusterrolebinding-loki-promtail.yaml,
+clusterrolebinding-promtail.yaml,
+cm-loki-loki-stack-test.yaml,
+cm-loki-loki-stack.yaml,
+daemonset-loki-promtail.yaml,
+file-loki-promtail.yaml,
+file-loki.yaml,
+file-promtail.yaml,
+pvc-storage-loki-0.yaml,
+role-loki.yaml,
+rolebinding-loki.yaml,
+sa-loki-promtail.yaml,
+sa-loki.yaml,
+sa-promtail.yaml,
+secret-loki-promtail.yaml,
+secret-loki.yaml,
+secret-promtail.yaml,
+secret-sh.helm.release.v1.loki.v1.yaml,
+secret-sh.helm.release.v1.promtail.v1.yaml,
+service-loki-headless.yaml,
+service-loki-memberlist.yaml,
+service-loki.yamlstatefulset-loki.yaml,
 statefulset-loki.yaml`
 
 **2. Open  each secret file , copy encrypted data file and after decryption with base64 ,generate file-XXX.yaml  it.**
