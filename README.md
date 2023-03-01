@@ -6,9 +6,9 @@ This Document will help you setup Loki & Promtail in Kubernetes using helm and m
 **Gafana Loki & Promtail Setup using Helm**
 
 **1.** First add the helm repo to the local repository.
-
-```[root@devopsrnd ~]# helm repo add grafana https://grafana.github.io/helm-charts
-```
+`
+[root@devopsrnd ~]# helm repo add grafana https://grafana.github.io/helm-charts
+`
 
 **2.** Then we will install it using the following command. The below command will install loki & promtail to monitoring namespace, setup data retention to 240h & also setup a PVC for loki to persist the data stored in loki pods.(Consider Grafana,prometheus are already Installed)
 ```
