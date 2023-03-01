@@ -7,8 +7,8 @@ This Document will help you setup Loki & Promtail in Kubernetes using helm and m
 
 **1.** First add the helm repo to the local repository.
 
-`[root@devopsrnd ~]# helm repo add grafana https://grafana.github.io/helm-charts
-`
+```[root@devopsrnd ~]# helm repo add grafana https://grafana.github.io/helm-charts
+```
 
 **2.** Then we will install it using the following command. The below command will install loki & promtail to monitoring namespace, setup data retention to 240h & also setup a PVC for loki to persist the data stored in loki pods.(Consider Grafana,prometheus are already Installed)
 
@@ -27,8 +27,8 @@ The name can be set as per your requirement, In the url part you have to add the
 **Gafana Loki & Promtail using Manual Configuration File :**
 
 **1. Generate Declarative yaml file of Grafana Loki & Promtail from Kubernetes Cluster which was setup using Helm Chart.**
-
-`clusterrole-loki-promtail.yaml,
+```
+clusterrole-loki-promtail.yaml,
 clusterrole-promtail.yaml,
 clusterrolebinding-loki-promtail.yaml,
 clusterrolebinding-promtail.yaml,
@@ -52,7 +52,8 @@ secret-sh.helm.release.v1.promtail.v1.yaml,
 service-loki-headless.yaml,
 service-loki-memberlist.yaml,
 service-loki.yamlstatefulset-loki.yaml,
-statefulset-loki.yaml`
+statefulset-loki.yaml
+```
 
 **2. Open  each secret file , copy encrypted data file and after decryption with base64 ,generate file-XXX.yaml  it.**
 
@@ -95,17 +96,21 @@ limits_config:
 
 **v)Create 5 secret.**
 
-`secret-loki-promtail (datafile file-loki-promtail.yaml),  secret-loki(datafile file-loki.yaml),  secret-promtail (datafile file-promtail),  secret-sh.helm.release.v1.loki.v1, secret-sh.helm.release.v1.promtail.v1`
+```
+secret-loki-promtail (datafile file-loki-promtail.yaml),  secret-loki(datafile file-loki.yaml),  secret-promtail (datafile file-promtail),  secret-sh.helm.release.v1.loki.v1, secret-sh.helm.release.v1.promtail.v1
+```
 
 **vi)Create 1 persistent volume claim of 300GB**
 
-`storage-loki-0`
-`spec:`
-  `accessModes:`
-  `- ReadWriteOnce`
-  `resources:`
-    `requests:`
-      `storage: 300Gi  (Change IT)`
+```
+storage-loki-0
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 300Gi  (Change IT)
+```
  
 **vii)Create DaemonSet and StateFulSet**
 
@@ -116,29 +121,30 @@ limits_config:
 
 **i)The name can be set as per your requirement, In the url part you have to add the cluster-ip url. Since both the Grafana & Loki are in the same cluster.**
 
-`For example
-URL http://loki.monitoring.svc.cluster.local:3100/`
+```
+For example
+URL http://loki.monitoring.svc.cluster.local:3100/
 
-`Go to the Loki Kubernetes Logs/Setting and add pods variable in variable section with below parameters and Click on Run Query to see all pods name are visible in Preview of values.
-`
-`Select variable type
-Query (Select It)`
+Go to the Loki Kubernetes Logs/Setting and add pods variable in variable section with below parameters and Click on Run Query to see all pods name are visible in Preview of values.
 
-`General
+Select variable type
+Query (Select It)
+
+General
 Name
 The name of the template variable. (Max. 50 characters)
-pods (Write It)`
+pods (Write It)
 
-`Query options
+Query options
 Data source
 Loki (Select It)
-`
-`Custom all value
-.+  (Write It)`
 
-`Preview of values
+Custom all value
+.+  (Write It)
+
+Preview of values
 #Check the changes after click on Run Query
-`
+```
 
 **ii)Click Right button on Graph Window and edit the query section with below parameters and click on Run queries.**
 
