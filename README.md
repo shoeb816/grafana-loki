@@ -11,8 +11,9 @@ This Document will help you setup Loki & Promtail in Kubernetes using helm and m
 ```
 
 **2.** Then we will install it using the following command. The below command will install loki & promtail to monitoring namespace, setup data retention to 240h & also setup a PVC for loki to persist the data stored in loki pods.(Consider Grafana,prometheus are already Installed)
-
-`[root@devopsrnd ~]#helm upgrade --install loki grafana/loki-stack --namespace=monitoring --set config.table_manager.retention_deletes_enabled=true --set config.table_manager.retention_period=240h --set grafana.enabled=false,prometheus.enabled=false,loki.persistence.enabled=true,loki.persistence.storageClassName=standard,loki.persistence.size=100Gi`
+```
+[root@devopsrnd ~]#helm upgrade --install loki grafana/loki-stack --namespace=monitoring --set config.table_manager.retention_deletes_enabled=true --set config.table_manager.retention_period=240h --set grafana.enabled=false,prometheus.enabled=false,loki.persistence.enabled=true,loki.persistence.storageClassName=standard,loki.persistence.size=300Gi
+```
 
 **3.** After this go to Grafana Dashboard & add loki data-source with the following details shown below in the image.
 
